@@ -1560,7 +1560,7 @@ export class Node<NodeType extends ts.Node = ts.Node> {
       let lastTransformation: Transformation | undefined;
 
       // remove any prior transformations nested within this transformation
-      while ((lastTransformation = transformations[transformations.length - 1]) && lastTransformation.start > start)
+      while ((lastTransformation = transformations[transformations.length - 1]) && lastTransformation.start >= start)
         transformations.pop();
 
       const wrappedNode = compilerFactory.getExistingNodeFromCompilerNode(oldNode);

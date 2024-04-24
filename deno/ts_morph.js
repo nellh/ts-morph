@@ -3796,7 +3796,7 @@ class Node {
             const start = oldNode.getStart(compilerSourceFile, true);
             const end = oldNode.end;
             let lastTransformation;
-            while ((lastTransformation = transformations[transformations.length - 1]) && lastTransformation.start > start)
+            while ((lastTransformation = transformations[transformations.length - 1]) && lastTransformation.start >= start)
                 transformations.pop();
             const wrappedNode = compilerFactory.getExistingNodeFromCompilerNode(oldNode);
             transformations.push({
